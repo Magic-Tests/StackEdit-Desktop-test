@@ -96,7 +96,7 @@ jobs:
           npm install
           npm run pack
       - name: Zip exported folder
-        run: sudo zip -r dist/win-unpacked/* . -i Windows-Unpacked.zip
+        run: sudo zip -r "Windows-Unpacked.zip" dist/win-unpacked/* 
       - name: Upload
         uses: actions/upload-artifact@v2
         with:
