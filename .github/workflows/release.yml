@@ -96,10 +96,10 @@ jobs:
           npm install
           npm run pack
       - name: Zip exported folder
-        run: sudo zip -r "Windows-Unpacked.zip" dist/win-unpacked/* 
+        run: sudo zip -r "Linux-Unpacked.zip" dist/lin-unpacked/* 
       - name: Upload
         uses: actions/upload-artifact@v2
         with:
           name: Windows-Unpacked
-          path: dist/Windows-Unpacked.zip
+          path: dist/Linux-Unpacked.zip
           if-no-files-found: error
