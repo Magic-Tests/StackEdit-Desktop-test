@@ -90,13 +90,13 @@ jobs:
       - name: Install zip
         run: |
           sudo apt update
-          sudo apt install zip unzip
+          sudo apt install zip
       - name: npm
         run: |
           npm install
           npm run pack
       - name: Zip exported folder
-        run: sudo zip -r Windows-Unpacked.zip /dist/win-unpacked/
+        run: sudo zip -r Windows-Unpacked.zip dist/win-unpacked/*
       - name: Upload
         uses: actions/upload-artifact@v2
         with:
