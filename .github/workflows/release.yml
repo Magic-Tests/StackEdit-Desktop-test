@@ -96,10 +96,10 @@ jobs:
           npm install
           npm run pack
       - name: Zip exported folder
-        run: sudo zip -r Windows-Unpacked.zip dist/win-unpacked
+        run: sudo zip -r Windows-Unpacked.zip /dist/win-unpacked/
       - name: Upload
         uses: actions/upload-artifact@v2
         with:
           name: Windows-Unpacked
-          path: dist/*.dmg
+          path: dist/Windows-Unpacked.zip
           if-no-files-found: error
