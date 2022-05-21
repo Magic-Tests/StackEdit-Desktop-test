@@ -23,10 +23,10 @@ jobs:
           # (No need to define this secret in the repo settings)
           github_token: ${{ secrets.github_token }}
           
-      - name: Windows-Installer
+      - name: Upload
         uses: actions/upload-artifact@v2
         with:
-          name: Binaries
+          name: Windows-x64-Installer
           path: dist/*.exe
           if-no-files-found: error
       
@@ -45,18 +45,16 @@ jobs:
           # (No need to define this secret in the repo settings)
           github_token: ${{ secrets.github_token }}
           
-      - name: Linux-x64-deb
+      - name: Upload
         uses: actions/upload-artifact@v2
-        if: startsWith(matrix.os, 'ubuntu')
         with:
-          name: Binaries
+          name: Linux-x64-deb
           path: dist/*.deb
           if-no-files-found: error
-      - name: Linux-x64-AppImage
+      - name: Upload
         uses: actions/upload-artifact@v2
-        if: startsWith(matrix.os, 'ubuntu')
         with:
-          name: Binaries
+          name: Linux-x64-AppImage
           path: dist/*.AppImage
           if-no-files-found: error
 
@@ -75,10 +73,9 @@ jobs:
           # (No need to define this secret in the repo settings)
           github_token: ${{ secrets.github_token }}
           
-      - name: MacOS-Image
+      - name: Upload
         uses: actions/upload-artifact@v2
-        if: startsWith(matrix.os, 'macos')
         with:
-          name: Binaries
+          name: MacOS-Image
           path: dist/*.dmg
           if-no-files-found: error
