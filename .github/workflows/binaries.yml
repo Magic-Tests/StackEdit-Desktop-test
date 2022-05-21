@@ -43,6 +43,8 @@ jobs:
         # https://github.com/electron/get#how-it-works
           path: ~/.cache/electron
           key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+      - name: Install Wine
+        run: sudo apt install wine-stable
       - name: Setup Node.js
         uses: actions/setup-node@v1
         with:
