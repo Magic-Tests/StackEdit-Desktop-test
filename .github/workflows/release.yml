@@ -87,21 +87,15 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
       
-      - name: Install zip
-        run: |
-          sudo apt update
-          sudo apt install zip
       - name: npm
         run: |
           npm install
           npm run pack
-      - name: Zip exported folder
-        run: sudo zip -r "Linux-Unpacked.zip" dist/lin-unpacked/* 
       - name: Upload
         uses: actions/upload-artifact@v2
         with:
-          name: Windows-Unpacked
-          path: dist/Linux-Unpacked.zip
+          name: Linux-Unpacked
+          path: dist/linux-unpacked
           if-no-files-found: error
 
   windows-unpacked:
