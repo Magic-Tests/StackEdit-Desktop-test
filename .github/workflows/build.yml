@@ -42,28 +42,28 @@ jobs:
           github_token: ${{ secrets.github_token }}
       - name: Windows-Installer
         uses: actions/upload-artifact@v2
-        if: startsWith(windows-latest)
+        if: startsWith(windows)
         with:
           name: Binaries
           path: dist/*.exe
           if-no-files-found: error
       - name: Linuxx64-deb
         uses: actions/upload-artifact@v2
-        if: startsWith(ubuntu-latest)
+        if: startsWith(ubuntu)
         with:
           name: Binaries
           path: dist/*.deb
           if-no-files-found: error
       - name: Linux-x64-AppImage
         uses: actions/upload-artifact@v2
-        if: startsWith(windows-latest)
+        if: startsWith(ubuntu)
         with:
           name: Binaries
           path: dist/*.AppImage
           if-no-files-found: error
       - name: MacOS-Image
         uses: actions/upload-artifact@v2
-        if: startsWith(windows-latest)
+        if: startsWith(macos)
         with:
           name: Binaries
           path: dist/*.dmg
