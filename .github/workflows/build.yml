@@ -40,3 +40,18 @@ jobs:
           # GitHub token, automatically provided to the action
           # (No need to define this secret in the repo settings)
           github_token: ${{ secrets.github_token }}
+      - uses: actions/upload-artifact@v2
+        with:
+          name: Linux-AppImages
+          path: dist/*.AppImage
+          if-no-files-found: error
+      - uses: actions/upload-artifact@v2
+        with:
+          name: Windows-Installer
+          path: dist/*.exe
+          if-no-files-found: error
+      - uses: actions/upload-artifact@v2
+        with:
+          name: MacOS-Image
+          path: dist/*.dmg
+          if-no-files-found: error
