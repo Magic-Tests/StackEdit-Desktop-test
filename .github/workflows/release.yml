@@ -80,7 +80,7 @@ jobs:
           path: dist/*.dmg
           if-no-files-found: error
 
-  windows-unpacked:
+  linux-unpacked:
     runs-on: ubuntu-latest
     
     steps:
@@ -102,4 +102,23 @@ jobs:
         with:
           name: Windows-Unpacked
           path: dist/Linux-Unpacked.zip
+          if-no-files-found: error
+
+  windows-unpacked:
+    runs-on: windows-latest
+    
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      
+      - name: npm
+        run: |
+          npm install
+          npm run pack
+          
+      - name: Upload
+        uses: actions/upload-artifact@v2
+        with:
+          name: Windows-Unpacked
+          path: dist/win-unpacked
           if-no-files-found: error
